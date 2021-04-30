@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "959515237631",
+    "project_id": "paindiaryapp-31c4a",
+    "storage_bucket": "paindiaryapp-31c4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:959515237631:android:59822434f85ca8ac7240ca",
+        "android_client_info": {
+          "package_name": "com.example.paindiaryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "959515237631-mhu0uiq6n3qdggtqp956g7rc76h2aos1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.paindiaryapp",
+            "certificate_hash": "9fabf8d4444f7ae625156f78b4f7e142a87054c6"
+          }
+        },
+        {
+          "client_id": "959515237631-3a43tmu3m5n8a757gtqtkuu3vrg8b9n0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACJVwNFPnvsxspIlaKAPJzjBesu3VSiNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "959515237631-3a43tmu3m5n8a757gtqtkuu3vrg8b9n0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
