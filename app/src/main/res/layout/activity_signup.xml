@@ -11,16 +11,16 @@ tools:context=".Loginsignup.SignupActivity">
 
 <FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="203dp"
+    android:layout_height="163dp"
     android:background="@drawable/blue_bg">
 
     <ImageView
         android:id="@+id/logo1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/logopd" />
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logopg" />
 
 </FrameLayout>
 
@@ -135,5 +135,13 @@ tools:context=".Loginsignup.SignupActivity">
 
 
 </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="190dp"
+        android:layout_marginBottom="30dp"
+        android:visibility="invisible" />
 
 </LinearLayout>

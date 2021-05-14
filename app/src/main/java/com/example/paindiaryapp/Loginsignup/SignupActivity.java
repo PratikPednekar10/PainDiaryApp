@@ -82,10 +82,11 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete ( @NonNull Task < AuthResult > task ) {
                         if(task.isSuccessful ()){
-                            Toast.makeText ( SignupActivity.this, "User Created", Toast.LENGTH_LONG ).show ();
+                            Toast.makeText ( getApplicationContext (), "User Created", Toast.LENGTH_LONG ).show ();
                             startActivity ( new Intent ( getApplicationContext (), MainActivity.class ) );
                         }else {
-                            Toast.makeText ( SignupActivity.this, "Error!" + task.getException ().getMessage (), Toast.LENGTH_LONG ).show ();
+                            Toast.makeText ( getApplicationContext (), "Error!" + task.getException ().getMessage (), Toast.LENGTH_LONG ).show ();
+                            binding.progressBarS.setVisibility ( View.GONE );
 
                         }
                     }

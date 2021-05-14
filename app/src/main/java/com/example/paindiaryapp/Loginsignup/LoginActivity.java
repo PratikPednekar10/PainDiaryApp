@@ -1,19 +1,23 @@
 package com.example.paindiaryapp.Loginsignup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.paindiaryapp.MainActivity;
 import com.example.paindiaryapp.R;
 import com.example.paindiaryapp.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -39,6 +43,11 @@ public class LoginActivity extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance ();
 
+        if ( firebaseAuth.getCurrentUser () != null ){
+            startActivity ( new Intent ( getApplicationContext (), MainActivity.class ) );
+            finish ();
+        }
+
         binding.btnLogin.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick ( View v ) {
@@ -60,16 +69,18 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                binding.progressBar.setVisibility ( View.VISIBLE );
+
                 //Log.d ( email,password );
 
                 firebaseAuth.signInWithEmailAndPassword ( email, password ).addOnCompleteListener ( new OnCompleteListener < AuthResult > ( ) {
                     @Override
                     public void onComplete ( @NonNull Task < AuthResult > task ) {
                         if ( task.isSuccessful ( ) ) {
-                            Toast.makeText ( LoginActivity.this, "Logged in Successfully", Toast.LENGTH_LONG ).show ( );
                             startActivity ( new Intent ( getApplicationContext ( ), MainActivity.class ) );
                         } else {
-                            Toast.makeText ( LoginActivity.this, "Error !" + task.getException ( ).getMessage ( ), Toast.LENGTH_LONG ).show ( );
+                            Toast.makeText ( getApplicationContext (), "Error !" + task.getException ( ).getMessage ( ), Toast.LENGTH_LONG ).show ( );
+                            binding.progressBar.setVisibility ( View.GONE );
                         }
 
                     }
@@ -84,6 +95,48 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick ( View v ) {
                 Intent intent = new Intent ( LoginActivity.this, SignupActivity.class );
                 startActivity ( intent );
+            }
+        } );
+
+
+        binding.btnforgetpass.setOnClickListener ( new View.OnClickListener ( ) {
+            @Override
+            public void onClick ( View v ) {
+
+                EditText resetMail = new EditText ( v.getContext () );
+                AlertDialog.Builder passwordReserDialog = new AlertDialog.Builder ( v.getContext () );
+                passwordReserDialog.setTitle ( "Reset Password?" );
+                passwordReserDialog.setMessage ( "Enter your Email to receive reset link " );
+                passwordReserDialog.setView ( resetMail );
+
+                passwordReserDialog.setPositiveButton ( "Yes", new DialogInterface.OnClickListener ( ) {
+                    @Override
+                    public void onClick ( DialogInterface dialog, int which ) {
+                        //Extract the email and send reset link
+
+                        String mail = resetMail.getText ().toString ();
+                        firebaseAuth.sendPasswordResetEmail ( mail ).addOnSuccessListener ( new OnSuccessListener < Void > ( ) {
+                            @Override
+                            public void onSuccess ( Void aVoid ) {
+                                Toast.makeText ( LoginActivity.this, "Reset Link sent to your Email",Toast.LENGTH_SHORT ).show ();
+                            }
+                        } ).addOnFailureListener ( new OnFailureListener ( ) {
+                            @Override
+                            public void onFailure ( @NonNull Exception e ) {
+                                Toast.makeText ( LoginActivity.this,"Error! Reset Link is Not Sent"+ e.getMessage (),Toast.LENGTH_SHORT ).show ();
+                            }
+                        } );
+                    }
+                } );
+
+                passwordReserDialog.setNegativeButton ( "No", new DialogInterface.OnClickListener ( ) {
+                    @Override
+                    public void onClick ( DialogInterface dialog, int which ) {
+                        //close the dialog
+                    }
+                } );
+
+                passwordReserDialog.create ().show ();
             }
         } );
 

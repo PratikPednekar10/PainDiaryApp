@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.paindiaryapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,16 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PainDiaryApp">
-        <activity android:name=".Loginsignup.SignupActivity">
+        <activity android:name=".SplashScreen.SplashActivity"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Loginsignup.LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Loginsignup.SignupActivity">
         </activity>
+        <activity android:name=".Loginsignup.LoginActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
