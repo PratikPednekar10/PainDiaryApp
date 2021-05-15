@@ -34,10 +34,7 @@ public class SignupActivity extends AppCompatActivity {
         //setContentView ( R.layout.activity_signup );
         firebaseAuth = FirebaseAuth.getInstance ();
 
-        if ( firebaseAuth.getCurrentUser () != null ){
-            startActivity ( new Intent ( getApplicationContext (), MainActivity.class ) );
-            finish ();
-        }
+
 
 
 
@@ -82,8 +79,9 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete ( @NonNull Task < AuthResult > task ) {
                         if(task.isSuccessful ()){
+                            FirebaseAuth.getInstance ().signOut ();
                             Toast.makeText ( getApplicationContext (), "User Created", Toast.LENGTH_LONG ).show ();
-                            startActivity ( new Intent ( getApplicationContext (), MainActivity.class ) );
+                            startActivity ( new Intent (  SignupActivity.this, LoginActivity.class ) );
                         }else {
                             Toast.makeText ( getApplicationContext (), "Error!" + task.getException ().getMessage (), Toast.LENGTH_LONG ).show ();
                             binding.progressBarS.setVisibility ( View.GONE );

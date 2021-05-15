@@ -3,44 +3,215 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#1566e0"
+    android:orientation="vertical"
     tools:context=".Fragments.PainDataEntryFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pain Data Entry Form"
-            android:textSize="28sp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/bungee_regular"
-            android:textColor="#FF9800"/>
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/bungee_regular"
+                android:text="Pain Data Entry Form"
+                android:textColor="#FF9800"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tvTimePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Select Time to Notify:"
+                android:textColor="#FF9800"
+                android:textSize="22sp" />
+
+
+            <Button
+                android:id="@+id/btnTimePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#9C27B0"
+                android:text="Schedule Notification" />
 
             <TextView
                 android:id="@+id/tvpainIntensity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Pain Intensity Level:"
                 android:layout_below="@+id/tvTitle"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/poppins_medium"
+                android:text="Pain Intensity Level:"
                 android:textColor="#FF9800"
-                android:textSize="22sp"/>
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Rating 5"
+                android:textColor="#FFFF"
+                android:textSize="25sp" />
 
             <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:max="10"
+                android:progress="5"
+                android:scaleX="2"
+                android:scaleY="2" />
+
+            <TextView
+                android:id="@+id/tvPainLocation"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Pain Location"
+                android:textColor="#FF9800"
+                android:textSize="22sp" />
+
+            <Spinner
+                android:id="@+id/bSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:entries="@array/Spinner_items"
+
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/tvMood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Mood"
+                android:textColor="#FF9800"
+                android:textSize="22sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Very Low"
+                    android:textColor="#ffff" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Low"
+                    android:textColor="#ffff" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Average"
+                    android:textColor="#ffff" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Good"
+                    android:textColor="#ffff" />
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="Very Good"
+                    android:textColor="#ffff" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etSetGoals"
+                android:layout_marginTop="20dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                app:endIconMode="clear_text"
+                android:textColorHint="#FF9800"
+                app:placeholderText="10,000steps"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:hint="Set a Goal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:textColor="#FF9800"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btnSave"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Save"
+                    android:fontFamily="@font/bungee_regular"
+                    android:layout_marginTop="10dp"/>
+
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/bungee_regular"
+                    android:text="Edit" />
+            </RelativeLayout>
 
         </LinearLayout>
 
