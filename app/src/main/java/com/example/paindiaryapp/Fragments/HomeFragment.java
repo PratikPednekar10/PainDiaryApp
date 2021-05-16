@@ -41,26 +41,33 @@ public class HomeFragment extends Fragment {
                                Bundle savedInstanceState ) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-        getWeatherData ( binding.tvCity.getText().toString().trim() );
+        //getWeatherData ( binding.tvCity.getText().toString().trim() );
+
+        getWeatherData (  );
 
        return view;
     }
 
-    private void getWeatherData(String name){
+    private void getWeatherData(){
+
+
 
         ApiInterface apiInterface = Api.getClient ( ).create ( ApiInterface.class );
 
-        Call < WeatherData > call = apiInterface.getweatherData ( name );
+        Call < WeatherData > call = apiInterface.getweatherData (  );
 
         call.enqueue ( new Callback < WeatherData > ( ) {
             @Override
             public void onResponse ( Call < WeatherData > call, Response < WeatherData > response ) {
 
 
+
                 try {
-                    binding.tvTemp.setText("Temp" + " " + response.body().getMain().getTemp() + " C");
-                    binding.tvHumidity.setText("Humidity " + " " + response.body().getMain().getHumidity ());
-                    binding.tvPressure.setText("Pressure " + " " + response.body().getMain().getPressure ());
+
+                    binding.tvCity.setText ( response.body ().getName () );
+                    binding.tvTemp.setText(response.body().getMain().getTemp() + " °C");
+                    binding.tvHumidity.setText("Humidity " + " " + response.body().getMain().getHumidity ()+ "%");
+                    binding.tvPressure.setText("Pressure " + " " + response.body().getMain().getPressure ()+"hPa");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -4,8 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class MainTemp {
 
-    @SerializedName("name")
-    String name;
+
 
     @SerializedName("temp")
     String temp;
@@ -15,15 +14,6 @@ public class MainTemp {
 
     @SerializedName("pressure")
     String pressure;
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String temp) {
-        this.name = name;
-    }
 
     public String getTemp() {
         return temp;
