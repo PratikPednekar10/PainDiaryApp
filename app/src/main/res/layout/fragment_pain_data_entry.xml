@@ -1,220 +1,405 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#1566e0"
+    android:background="@drawable/backg"
     android:orientation="vertical"
     tools:context=".Fragments.PainDataEntryFragment">
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/bungee_regular"
-                android:text="Pain Data Entry Form"
-                android:textColor="#FF9800"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/tvTimePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Select Time to Notify:"
-                android:textColor="#FF9800"
-                android:textSize="22sp" />
-
-
-            <Button
-                android:id="@+id/btnTimePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="#9C27B0"
-                android:text="Schedule Notification" />
-
-            <TextView
-                android:id="@+id/tvpainIntensity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvTitle"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Pain Intensity Level:"
-                android:textColor="#FF9800"
-                android:textSize="22sp" />
-
-            <TextView
-                android:id="@+id/tvRating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Rating 5"
-                android:textColor="#FFFF"
-                android:textSize="25sp" />
-
-            <SeekBar
-                android:id="@+id/seekBar"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:max="10"
-                android:progress="5"
-                android:scaleX="2"
-                android:scaleY="2" />
-
-            <TextView
-                android:id="@+id/tvPainLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Pain Location"
-                android:textColor="#FF9800"
-                android:textSize="22sp" />
-
-            <Spinner
-                android:id="@+id/bSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:entries="@array/Spinner_items"
-
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/tvMood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Mood"
-                android:textColor="#FF9800"
-                android:textSize="22sp" />
-
-            <RadioGroup
-                android:id="@+id/radioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_gravity="center_horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="Very Low"
-                    android:textColor="#ffff" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="Low"
-                    android:textColor="#ffff" />
-
-                <RadioButton
-                    android:id="@+id/radioButton3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="Average"
-                    android:textColor="#ffff" />
-
-                <RadioButton
-                    android:id="@+id/radioButton4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="Good"
-                    android:textColor="#ffff" />
-
-                <RadioButton
-                    android:id="@+id/radioButton5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:text="Very Good"
-                    android:textColor="#ffff" />
-
-            </RadioGroup>
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/etSetGoals"
-                android:layout_marginTop="20dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                app:endIconMode="clear_text"
-                android:textColorHint="#FF9800"
-                app:placeholderText="10,000steps"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:hint="Set a Goal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:textColor="#FF9800"
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bungee_regular"
+                    android:text="Pain Data Entry Form"
+                    android:textColor="#FBC02D"
+                    android:textSize="28sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewW"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true">
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <RelativeLayout
+                        android:id="@+id/r1MainW"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+
+
+                        <TextView
+                            android:id="@+id/tvTimePicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Select Time to Notify:"
+                            android:textColor="#1976D2"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/tvAlarmAlert"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvTimePicker"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:text="No Schedule Set"
+                            android:textColor="#FBC02D"
+                            android:textSize="20sp" />
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnScheduleN"
+                            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvAlarmAlert"
+                            android:layout_marginBottom="5dp"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:text="Schedule Notification"
+                            app:icon="@drawable/ic_baseline_access_alarms_24"
+                            app:strokeColor="#1976D2"
+                            app:strokeWidth="2dp" />
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewW1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true">
+
+
+                    <RelativeLayout
+                        android:id="@+id/r1MainW1"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+
+
+                        <TextView
+                            android:id="@+id/tvpainIntensity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Pain Intensity Level:"
+                            android:textColor="#1976D2"
+                            android:textSize="22sp" />
+
+
+
+                        <TextView
+                            android:id="@+id/tvHint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvpainIntensity"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="(0 = no pain and 10 = worst pain)"
+                            android:textColor="#FBC02D"
+                            android:textSize="15sp" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/painIntensitySilder"
+                            android:layout_width="300dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/tvHint"
+                            android:valueFrom="0"
+                            android:valueTo="10"
+                            android:stepSize="1"
+                            />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewW2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true">
+
+
+                    <RelativeLayout
+                        android:id="@+id/r1MainW2"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp">
+
+                        <TextView
+                            android:id="@+id/tvPainLocation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Pain Location:"
+                            android:textColor="#1976D2"
+                            android:textSize="22sp" />
+
+                        <Spinner
+                            android:id="@+id/bSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvPainLocation"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="45dp"
+                            android:layout_marginBottom="20dp"
+                            android:entries="@array/Spinner_items"
+                            android:textAlignment="center" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewW3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true">
+
+
+                    <RelativeLayout
+                        android:id="@+id/r1MainW3"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp">
+
+                        <TextView
+                            android:id="@+id/tvMood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="Mood:"
+                            android:textColor="#1976D2"
+                            android:textSize="22sp" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:layout_below="@+id/tvMood"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="10dp">
+
+                            <RadioButton
+                                android:id="@+id/radioButton1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="false"
+                                android:text="Very Low"
+                                android:textColor="#FF9800" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="false"
+                                android:text="Low"
+                                android:textColor="#FF9800" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="false"
+                                android:text="Average"
+                                android:textColor="#FF9800" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="false"
+                                android:text="Good"
+                                android:textColor="#FF9800" />
+
+                            <RadioButton
+                                android:id="@+id/radioButton5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="false"
+                                android:text="Very Good"
+                                android:textColor="#FF9800" />
+
+                        </RadioGroup>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewW4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true">
+
+
+                    <RelativeLayout
+                        android:id="@+id/r1MainW4"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/etSetGoals"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="15dp"
+                                android:hint="Set a Goal"
+                                android:textColorHint="#7B1FA2"
+                                app:endIconMode="clear_text">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:text="10000"
+                                    android:textColor="#050505" />
+
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewW5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="8dp"
+                    app:cardUseCompatPadding="true">
+
+
+                    <RelativeLayout
+                        android:id="@+id/r1MainW5"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/etSetGoalsToday"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginRight="15dp"
+                                android:hint="Set Today's Goal"
+                                android:textColorHint="#7B1FA2"
+                                app:endIconMode="clear_text"
+                                app:placeholderText="500 steps">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="number"
+                                    android:textColor="#050505" />
+
+
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/btnSave"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/bungee_regular"
+                        android:text="Save" />
+
+                    <Button
+                        android:id="@+id/btnEdit"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/bungee_regular"
+                        android:text="Edit" />
+                </RelativeLayout>
+
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp">
-
-                <Button
-                    android:id="@+id/btnSave"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Save"
-                    android:fontFamily="@font/bungee_regular"
-                    android:layout_marginTop="10dp"/>
-
-                <Button
-                    android:id="@+id/btnEdit"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignParentRight="true"
-                    android:fontFamily="@font/bungee_regular"
-                    android:text="Edit" />
-            </RelativeLayout>
-
-        </LinearLayout>
-
+        </FrameLayout>
 
     </ScrollView>
 

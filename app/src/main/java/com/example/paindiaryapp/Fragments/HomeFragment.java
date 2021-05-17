@@ -1,5 +1,7 @@
 package com.example.paindiaryapp.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -68,6 +70,15 @@ public class HomeFragment extends Fragment {
                     binding.tvTemp.setText(response.body().getMain().getTemp() + " °C");
                     binding.tvHumidity.setText("Humidity " + " " + response.body().getMain().getHumidity ()+ "%");
                     binding.tvPressure.setText("Pressure " + " " + response.body().getMain().getPressure ()+"hPa");
+
+                    SharedPreferences sharedPref= requireActivity().
+                            getSharedPreferences("WeatherReporting", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor spEditor = sharedPref.edit();
+                    spEditor.putString("temperature", response.body().getMain().getTemp());
+                    spEditor.putString("humidity", response.body().getMain().getHumidity());
+                    spEditor.putString("pressure", response.body().getMain().getPressure());
+                    spEditor.apply();
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -50,7 +50,7 @@ public class DailyPainRecord {
     public double weatherPressure;
 
 
-    public DailyPainRecord (  @NonNull String userEmail, int painIntensity, @NonNull String painLocation, @NonNull String moodLevel, int goalSteps, @NonNull Date entryDate, double weatherTemperature, double weatherHumidity, double weatherPressure ) {
+    public DailyPainRecord ( @NonNull String userEmail, int painIntensity, @NonNull String painLocation, @NonNull String moodLevel, int goalSteps, @NonNull Date entryDate, double weatherTemperature, double weatherHumidity, double weatherPressure ) {
         this.userEmail = userEmail;
         this.painIntensity = painIntensity;
         this.painLocation = painLocation;

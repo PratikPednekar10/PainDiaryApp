@@ -3,7 +3,9 @@
     package="com.example.paindiaryapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +16,11 @@
         android:theme="@style/Theme.PainDiaryApp"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/security">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
         <activity
             android:name=".SplashScreen.SplashActivity"
             android:theme="@style/AppTheme.Splash">

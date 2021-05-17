@@ -18,7 +18,7 @@ public class DailyPainRecordViewModel  extends AndroidViewModel {
     private DailyPainRecordRepository dRepository;
     private LiveData< List <DailyPainRecord> > allDailyPainRecord;
 
-    public DailyPainRecordViewModel ( @NonNull Application application ) {
+    public DailyPainRecordViewModel (Application application ) {
         super ( application );
         dRepository = new DailyPainRecordRepository ( application );
         allDailyPainRecord = dRepository.getAllDailyPainRecord ();
@@ -26,11 +26,11 @@ public class DailyPainRecordViewModel  extends AndroidViewModel {
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
-    public CompletableFuture <DailyPainRecord> findByIDFuture( final int customerId){ return dRepository.findByIDFuture(customerId);
+    public CompletableFuture <DailyPainRecord> findByIDFuture( final int dailyPainRecordId){ return dRepository.findByIDFuture(dailyPainRecordId);
     }
-    public LiveData<List<DailyPainRecord>> getAllCustomers() {
+    public LiveData<List<DailyPainRecord>> getAllDailyPainRecord() {
         return allDailyPainRecord; }
-    public void insert(DailyPainRecord dailyPainRecord) { dRepository.insert(dailyPainRecord);
+    public  void insert ( DailyPainRecord dailyPainRecord ) { dRepository.insert(dailyPainRecord);
     }
 
     public void update(DailyPainRecord dailyPainRecord) { dRepository.updateDailyPainRecord (dailyPainRecord);
