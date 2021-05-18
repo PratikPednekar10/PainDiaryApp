@@ -64,7 +64,8 @@ public class MapsFragment extends Fragment {
                             } catch (IOException e) {
                                 e.printStackTrace ( );
                             }
-                            Address address = addressList.get ( 0 );
+                            Address address;
+                            address = addressList.get ( 0 );
                             LatLng latLng = new LatLng ( address.getLatitude (),address.getLongitude () );
                             googleMap.addMarker ( new MarkerOptions ().position ( latLng ).title ( locat ) );
                             googleMap.animateCamera ( CameraUpdateFactory.newLatLngZoom ( latLng,10 ) );
@@ -78,17 +79,8 @@ public class MapsFragment extends Fragment {
                         return false;
                     }
                 } );
-
-
-
-
-
-
-
             }
         } );
-
-
         return view;
     }
 

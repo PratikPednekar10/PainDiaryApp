@@ -23,7 +23,7 @@ public abstract class DailyPainRecordDatabase extends RoomDatabase {
     public abstract DailyPainRecordDAO dailyPainRecordDAO();
     private static DailyPainRecordDatabase INSTANCE;
     //we create an ExecutorService with a fixed thread pool so we can later run database operations asynchronously on a background thread.
-    private static final int NUMBER_OF_THREADS = 4;
+    private static final int NUMBER_OF_THREADS = 10;
 
 
     public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);

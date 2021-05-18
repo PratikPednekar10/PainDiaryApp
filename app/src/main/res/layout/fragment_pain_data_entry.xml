@@ -234,41 +234,46 @@
 
                             <RadioButton
                                 android:id="@+id/radioButton1"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:checked="false"
                                 android:text="Very Low"
+                                android:drawableRight="@drawable/verylow"
                                 android:textColor="#FF9800" />
 
                             <RadioButton
                                 android:id="@+id/radioButton2"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:checked="false"
                                 android:text="Low"
+                                android:drawableRight="@drawable/low"
                                 android:textColor="#FF9800" />
 
                             <RadioButton
                                 android:id="@+id/radioButton3"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:checked="false"
                                 android:text="Average"
+                                android:drawableRight="@drawable/averageface"
                                 android:textColor="#FF9800" />
 
                             <RadioButton
                                 android:id="@+id/radioButton4"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:checked="false"
                                 android:text="Good"
+                                android:drawableRight="@drawable/good"
                                 android:textColor="#FF9800" />
 
                             <RadioButton
                                 android:id="@+id/radioButton5"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:checked="false"
+                                android:drawableRight="@drawable/verygood"
                                 android:text="Very Good"
                                 android:textColor="#FF9800" />
 

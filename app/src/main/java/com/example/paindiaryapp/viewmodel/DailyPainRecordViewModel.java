@@ -8,6 +8,7 @@ import androidx.annotation.RequiresApi;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.paindiaryapp.dao.DailyPainRecordDAO;
 import com.example.paindiaryapp.entity.DailyPainRecord;
 import com.example.paindiaryapp.repository.DailyPainRecordRepository;
 
@@ -25,14 +26,22 @@ public class DailyPainRecordViewModel  extends AndroidViewModel {
     }
 
 
+
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public CompletableFuture <DailyPainRecord> findByIDFuture( final int dailyPainRecordId){ return dRepository.findByIDFuture(dailyPainRecordId);
     }
     public LiveData<List<DailyPainRecord>> getAllDailyPainRecord() {
         return allDailyPainRecord; }
+
+    public  LiveData<List< DailyPainRecordDAO.PaintLocCount>> getPainLocationCount(){return dRepository.getPainLocCount ();}
+
+    public LiveData<DailyPainRecord> getCurrentDayRecord(){return dRepository.getCurrentDayRecord();}
+
     public  void insert ( DailyPainRecord dailyPainRecord ) { dRepository.insert(dailyPainRecord);
     }
 
     public void update(DailyPainRecord dailyPainRecord) { dRepository.updateDailyPainRecord (dailyPainRecord);
     }
+
 }

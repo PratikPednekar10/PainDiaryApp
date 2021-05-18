@@ -19,7 +19,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_key" />
+            android:value="AIzaSyCIY68pc7U1W-Bqz1ngoUgAPjBltG8uAY8" />
 
         <activity
             android:name=".SplashScreen.SplashActivity"
@@ -35,6 +35,8 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <receiver android:name=".AlertReceiver" />
     </application>
 
 </manifest>

@@ -47,6 +47,14 @@ public class DailyPainRecordRepository {
         } );
     }
 
+    public LiveData<DailyPainRecord> getCurrentDayRecord() {
+        return dailyPainRecordDAO.getCurrentDayRecord ();
+    }
+
+    public  LiveData<List<DailyPainRecordDAO.PaintLocCount>> getPainLocCount() {
+        return dailyPainRecordDAO.getPainLocationC ( );
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     public CompletableFuture < DailyPainRecord > findByIDFuture ( final int customerId ) {
         return CompletableFuture.supplyAsync ( new Supplier < DailyPainRecord > ( ) {

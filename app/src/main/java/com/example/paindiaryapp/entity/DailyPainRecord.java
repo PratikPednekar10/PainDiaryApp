@@ -33,6 +33,10 @@ public class DailyPainRecord {
     @NonNull
     public int goalSteps;
 
+    @ColumnInfo(name = "daily_steps" )
+    @NonNull
+    public int dailySteps;
+
     @ColumnInfo(name = "entry_date" )
     @NonNull
     public Date entryDate;
@@ -50,7 +54,7 @@ public class DailyPainRecord {
     public double weatherPressure;
 
 
-    public DailyPainRecord ( @NonNull String userEmail, int painIntensity, @NonNull String painLocation, @NonNull String moodLevel, int goalSteps, @NonNull Date entryDate, double weatherTemperature, double weatherHumidity, double weatherPressure ) {
+    public DailyPainRecord ( @NonNull String userEmail, int painIntensity, @NonNull String painLocation, @NonNull String moodLevel, int goalSteps, @NonNull Date entryDate, double weatherTemperature, double weatherHumidity, double weatherPressure ,int dailySteps) {
         this.userEmail = userEmail;
         this.painIntensity = painIntensity;
         this.painLocation = painLocation;
@@ -60,5 +64,6 @@ public class DailyPainRecord {
         this.weatherTemperature = weatherTemperature;
         this.weatherHumidity = weatherHumidity;
         this.weatherPressure = weatherPressure;
+        this.dailySteps = dailySteps;
     }
 }
