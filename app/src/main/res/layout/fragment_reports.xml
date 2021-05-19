@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.ReportsFragment">
+    android:background="@drawable/backg"
+    tools:context=".Fragments.ReportsFragment"
+    android:id="@+id/fragment_container"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="reports" />
+        android:id="@+id/tvTitleReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Reports"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/bungee_regular"
+        android:textColor="#FBC02D"
+        android:textSize="30sp"/>
 
-</FrameLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGraph1"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Pain Location Pie chart"
+        android:fontFamily="@font/bungee_regular"
+        android:textColor="#FBC02D"
+        android:theme="@style/Platform.MaterialComponents"
+        android:layout_marginTop="60dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGraph2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Steps Taken Pie chart"
+        android:textColor="#FBC02D"
+        android:fontFamily="@font/bungee_regular"
+        android:theme="@style/Platform.MaterialComponents"
+        android:layout_marginTop="40dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGraph3"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Pain and Weather Line chart"
+        android:textColor="#FBC02D"
+        android:fontFamily="@font/bungee_regular"
+        android:theme="@style/Platform.MaterialComponents"
+        android:layout_marginTop="40dp"/>
+
+</LinearLayout>

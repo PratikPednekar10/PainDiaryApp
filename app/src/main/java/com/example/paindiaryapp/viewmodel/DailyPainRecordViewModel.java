@@ -12,6 +12,7 @@ import com.example.paindiaryapp.dao.DailyPainRecordDAO;
 import com.example.paindiaryapp.entity.DailyPainRecord;
 import com.example.paindiaryapp.repository.DailyPainRecordRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -35,6 +36,10 @@ public class DailyPainRecordViewModel  extends AndroidViewModel {
         return allDailyPainRecord; }
 
     public  LiveData<List< DailyPainRecordDAO.PaintLocCount>> getPainLocationCount(){return dRepository.getPainLocCount ();}
+
+    public LiveData<List<DailyPainRecord>> getDailyPainRecordRange( Date startDate, Date endDate ){
+        return dRepository.getDailyPainRecordRange ( startDate,endDate );
+    }
 
     public LiveData<DailyPainRecord> getCurrentDayRecord(){return dRepository.getCurrentDayRecord();}
 

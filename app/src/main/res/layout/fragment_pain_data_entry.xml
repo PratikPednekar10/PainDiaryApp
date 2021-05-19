@@ -193,6 +193,14 @@
                             android:entries="@array/Spinner_items"
                             android:textAlignment="center" />
 
+                        <TextView
+                            android:id="@+id/bSpinnerError"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/bSpinner"
+                            android:textSize="10sp"
+                            android:textColor="#D32F2F"/>
+
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -278,6 +286,14 @@
                                 android:textColor="#FF9800" />
 
                         </RadioGroup>
+
+                        <TextView
+                            android:id="@+id/radiobtnError"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/radioGroup"
+                            android:textSize="10sp"
+                            android:textColor="#D32F2F"/>
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>

@@ -8,6 +8,7 @@ import androidx.room.Update;
 
 import com.example.paindiaryapp.entity.DailyPainRecord;
 
+import java.util.Date;
 import java.util.List;
 
 @Dao
@@ -22,8 +23,11 @@ public interface DailyPainRecordDAO {
     @Query("SELECT * from dailypainrecord  where date(entry_date / 1000,'unixepoch') = date('now')")
     LiveData<DailyPainRecord> getCurrentDayRecord();
 
-    @Query("SELECT pain_location AS nameItem, count(pain_location) AS countItem FROM dailypainrecord group by pain_location")
+    @Query("SELECT pain_location AS nameItm, count(pain_location) AS countItm FROM dailypainrecord group by pain_location")
     LiveData<List<PaintLocCount>> getPainLocationC();
+
+    @Query ( "SELECT * FROM dailypainrecord where entry_date BETWEEN :from AND :to" )
+    LiveData<List<DailyPainRecord>> getDailyPainRecordRange( Date from, Date to);
 
 
 
@@ -55,45 +59,3 @@ public interface DailyPainRecordDAO {
     }
 
 }
-
-
-/*
-@Query("SELECT pain_location AS nameItem, count(pain_location) AS countItem FROM painrecord group by pain_location")
-    LiveData<List<CountedPainLocationItem>> getPainLocationCount();
-
-	public class CountedPainLocationItem {
-        String nameItem;
-        Long countItem;
-
-        public String getNameItem() {
-            return nameItem;
-        }
-
-        public void setNameItem(String nameItem) {
-            this.nameItem = nameItem;
-        }
-
-        public Long getCountItem() {
-            return countItem;
-        }
-
-        public void setCountItem(Long countItem) {
-            this.countItem = countItem;
-        }
-    }
-
-
-
-//repository
-
-    public  LiveData<List<PainRecordDAO.CountedPainLocationItem>> getPainLocationCount() {
-        return painRecordDao.getPainLocationCount();
-    }
-
-
-//view model
-
-    public  LiveData<List<PainRecordDAO.CountedPainLocationItem>> getPainLocationCount(){return pRepository.getPainLocationCount();}
-
-
- */

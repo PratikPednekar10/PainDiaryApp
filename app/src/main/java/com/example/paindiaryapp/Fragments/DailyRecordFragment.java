@@ -73,31 +73,4 @@ public class DailyRecordFragment extends Fragment {
     }
 
 }
-/*
 
-
-
-
-        painRecordViewModel1 = new
-                ViewModelProvider ( requireActivity ( ) ).get ( PainRecordViewModel.class );
-
-        painRecordViewModel1.getAllPainRecords ( ).observe ( getViewLifecycleOwner ( ), new
-                Observer < List < PainRecord > > ( ) {
-                    @Override
-                    public void onChanged ( List < PainRecord > painRecordList ) {
-                        if ( painRecordList.size ( ) > 0 ) {
-                            painRecList = painRecordList;
-                            adapter.setPainRecordList ( painRecList );
-                            recyclerView.setAdapter ( adapter );
-                        }
-
-                    }
-                } );
-
-        return v;
-    }
-
-
-}
-
- */

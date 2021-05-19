@@ -94,6 +94,9 @@ dependencies {
     // optional - Firebase JobDispatcher support
     implementation "android.arch.work:work-firebase:$work_version"
 
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation  'org.apache.commons:commons-math3:3.6.1'
+
 
 
 

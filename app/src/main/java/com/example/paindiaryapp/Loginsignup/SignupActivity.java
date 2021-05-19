@@ -31,7 +31,7 @@ public class SignupActivity extends AppCompatActivity {
         View view = binding.getRoot();
 
         setContentView(view);
-        //setContentView ( R.layout.activity_signup );
+
         firebaseAuth = FirebaseAuth.getInstance ();
 
 

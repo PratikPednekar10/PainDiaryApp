@@ -10,6 +10,7 @@ import com.example.paindiaryapp.dao.DailyPainRecordDAO;
 import com.example.paindiaryapp.database.DailyPainRecordDatabase;
 import com.example.paindiaryapp.entity.DailyPainRecord;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
@@ -53,6 +54,10 @@ public class DailyPainRecordRepository {
 
     public  LiveData<List<DailyPainRecordDAO.PaintLocCount>> getPainLocCount() {
         return dailyPainRecordDAO.getPainLocationC ( );
+    }
+
+    public LiveData<List<DailyPainRecord>> getDailyPainRecordRange( Date startDate, Date endDate){
+        return dailyPainRecordDAO.getDailyPainRecordRange(startDate,endDate);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

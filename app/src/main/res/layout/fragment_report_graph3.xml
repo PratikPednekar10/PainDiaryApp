@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lineChartlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStartDate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Start Date"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bungee_regular"
+            android:textColor="#FBC02D"
+            android:theme="@style/Platform.MaterialComponents"/>
+
+        <TextView
+            android:id="@+id/tvStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FBC02D"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bungee_regular"
+            android:textSize="15sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEndDate"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="End Date"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bungee_regular"
+            android:textColor="#FBC02D"
+            android:theme="@style/Platform.MaterialComponents"/>
+
+        <TextView
+            android:id="@+id/tvEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FBC02D"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bungee_regular"
+            android:textSize="15sp"/>
+
+        <Spinner
+            android:id="@+id/weatherSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowGraph"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Show Graph"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/bungee_regular"
+            android:textColor="#FBC02D"
+            android:theme="@style/Platform.MaterialComponents"/>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineGraph"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/white"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCorr"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="Correlation"
+            android:fontFamily="@font/bungee_regular"
+            android:textColor="#FBC02D"
+            android:theme="@style/Platform.MaterialComponents"/>
+
+        <TextView
+            android:id="@+id/tvCorrResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:textColor="#FBC02D"
+            android:fontFamily="@font/bungee_regular"/>
+
+
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>
+

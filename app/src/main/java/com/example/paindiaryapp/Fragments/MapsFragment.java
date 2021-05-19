@@ -57,6 +57,7 @@ public class MapsFragment extends Fragment {
                         String locat = binding.searchLoc.getQuery ().toString ();
                         List < Address > addressList = null;
 
+                        //Geocoder to fetch latitude and longitutse
                         if ( locat != null || !locat.equals ( "" ) ){
                             Geocoder geocoder = new Geocoder (getContext () );
                             try {

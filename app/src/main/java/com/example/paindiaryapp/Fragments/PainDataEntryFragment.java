@@ -190,45 +190,44 @@ public class PainDataEntryFragment extends Fragment implements AdapterView.OnIte
             @Override
             public void onClick ( View v ) {
 
-                user_email = FirebaseAuth.getInstance ( ).getCurrentUser ( ).getEmail ( ).toString ( );
-                //get values from form data entry
+                    user_email = FirebaseAuth.getInstance ( ).getCurrentUser ( ).getEmail ( ).toString ( );
+                    //get values from form data entry
 
-                //get mood level from radio button group
-                int radioId = binding.radioGroup.getCheckedRadioButtonId ( );
-                MaterialRadioButton radioButton = binding.radioGroup.findViewById ( radioId );
-                mood = radioButton.getText ( ).toString ( );
+                    //get mood level from radio button group
+                    int radioId = binding.radioGroup.getCheckedRadioButtonId ( );
+                    MaterialRadioButton radioButton = binding.radioGroup.findViewById ( radioId );
+                    mood = radioButton.getText ( ).toString ( );
 
-                //get value for pain intensity from slider
-                p_intensity = (int) binding.painIntensitySilder.getValue ( );
-
-
-                //get the goals steps
-                set_goal = Integer.parseInt ( binding.etSetGoals.getEditText ( ).getText ( ).toString ( ) );
-
-                //get the daily goals steps
-                daily_step = Integer.parseInt ( binding.etSetGoalsToday.getEditText ( ).getText ( ).toString ( ) );
-
-                //get pain_location
-                pain_location = binding.bSpinner.getSelectedItem ( ).toString ( );
+                    //get value for pain intensity from slider
+                    p_intensity = (int) binding.painIntensitySilder.getValue ( );
 
 
-                DailyPainRecord dailyPainRecord = new DailyPainRecord ( user_email, p_intensity, pain_location, mood, set_goal, new Date ( ), Double.parseDouble ( temperature ), Double.parseDouble ( humidity ), Double.parseDouble ( pressure ), daily_step );
-                dailyPainRecordViewModel.insert ( dailyPainRecord );
+                    //get the goals steps
+                    set_goal = Integer.parseInt ( binding.etSetGoals.getEditText ( ).getText ( ).toString ( ) );
+
+                    //get the daily goals steps
+                    daily_step = Integer.parseInt ( binding.etSetGoalsToday.getEditText ( ).getText ( ).toString ( ) );
+
+                    //get pain_location
+                    pain_location = binding.bSpinner.getSelectedItem ( ).toString ( );
 
 
+                    DailyPainRecord dailyPainRecord = new DailyPainRecord ( user_email, p_intensity, pain_location, mood, set_goal, new Date ( ), Double.parseDouble ( temperature ), Double.parseDouble ( humidity ), Double.parseDouble ( pressure ), daily_step );
+                    dailyPainRecordViewModel.insert ( dailyPainRecord );
 
-                PeriodicWorkRequest periodicWorkRequest = new PeriodicWorkRequest.Builder (
-                        MyPeriodicWork.class, 1, TimeUnit.DAYS )
-                        .build ( );
 
-                WorkManager.getInstance ( ).enqueue ( periodicWorkRequest );
+                    PeriodicWorkRequest periodicWorkRequest = new PeriodicWorkRequest.Builder (
+                            MyPeriodicWork.class, 1, TimeUnit.DAYS )
+                            .build ( );
 
-            }
+                    WorkManager.getInstance ( ).enqueue ( periodicWorkRequest );
+
+                }
 
 
         } );
 
-
+//Edit button logic
         binding.btnEdit.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
             public void onClick ( View v ) {
@@ -244,10 +243,10 @@ public class PainDataEntryFragment extends Fragment implements AdapterView.OnIte
 
                         user_email = FirebaseAuth.getInstance ( ).getCurrentUser ( ).getEmail ( ).toString ( );
 
-                        //get value for pain intensity
+                        //get value for pain intensity from slider
                         int pain_intensity = (int) binding.painIntensitySilder.getValue ( );
 
-                        //get mood level
+                        //get mood level radio button
                         int Id = binding.radioGroup.getCheckedRadioButtonId ( );
                         MaterialRadioButton rbtn = binding.radioGroup.findViewById ( Id );
                         String mood_level = rbtn.getText ( ).toString ( );
@@ -324,7 +323,7 @@ public class PainDataEntryFragment extends Fragment implements AdapterView.OnIte
 
 
     }
-
+//data insertion in firebase
     public void insertPainRecordData ( ) {
         String email = FirebaseAuth.getInstance ( ).getCurrentUser ( ).getEmail ( ).toString ( );
         String moodF = mood;
@@ -339,12 +338,14 @@ public class PainDataEntryFragment extends Fragment implements AdapterView.OnIte
         painRecordDbRef.push ( ).setValue ( painRecordFirebase );
         Toast.makeText ( getContext ( ), "Data inserted!", Toast.LENGTH_SHORT ).show ( );
     }
-
+//Set notification 2 min prior and schedule daily
     private void startAlarm ( Calendar c ) {
         AlarmManager alarmManager = (AlarmManager) getActivity ( ).getSystemService ( Context.ALARM_SERVICE );
         Intent intent = new Intent ( getActivity ( ), AlertReceiver.class );
         PendingIntent pendingIntent = PendingIntent.getBroadcast ( getContext ( ), 1, intent, 0 );
 
+        //Repeated every date
+        //if the time is passed it will set for next consecutive day
         if ( c.before ( Calendar.getInstance ( ) ) ) {
             c.add ( Calendar.DATE, 1 );
         }
@@ -354,7 +355,7 @@ public class PainDataEntryFragment extends Fragment implements AdapterView.OnIte
 
     }
 
-
+//Spinner on Selecting the option (Toast for user)
     @Override
     public void onItemSelected ( AdapterView < ? > parent, View view, int position, long id ) {
         Toast.makeText ( getContext ( ), parent.getSelectedItem ( ).toString ( ), Toast.LENGTH_SHORT ).show ( );
@@ -365,7 +366,7 @@ public class PainDataEntryFragment extends Fragment implements AdapterView.OnIte
 
     }
 
-
+//Class for scheduling work
     public class MyPeriodicWork extends Worker {
 
         private static final String TAG = "MyPeriodicWork";
@@ -374,6 +375,7 @@ public class PainDataEntryFragment extends Fragment implements AdapterView.OnIte
             super ( context, workerParams );
         }
 
+        //schedule work
         @NonNull
         @Override
         public Result doWork ( ) {
